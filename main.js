@@ -29,4 +29,39 @@ const perguntas = [
         ]
     },
 
-]
+    {
+        enunciado: "Ao final da discução, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
+        alternativas: [
+            "Criar uma imagem utilizando uma plataforma de desing como Paint.",
+            "Criar uma imagem utilizande um gerador de imgem de IA."
+        ]
+    },
+
+    {
+        enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrazado e uma pessoa do seu grupo decidiu fazer com ajuda de uma IA. O problema é que está totalmente igual ao do chat. o que você faz?",
+        alternativas:[
+            "Escrever comandos para o chat é uma forma de contribuir para o trabalho, por isso não é problema utilizar o texto inteiro.",
+            "O chat pode ser uma técnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial."
+        ]
+    }
+];
+
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta(){
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent=perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+
+function mostraAlternativas(){
+    for (const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas=document.createElement("button")
+        botaoAlternativas.textContent=alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+}
+
+mostraPergunta();
+
